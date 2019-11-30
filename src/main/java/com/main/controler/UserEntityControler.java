@@ -29,6 +29,7 @@ public class UserEntityControler {
 	@RequestMapping("/getTestInfo")
 	public TestInfo getTestInfo(@RequestParam Short id) {
         TestInfo testInfos=testInfoMapper.selectByPrimaryKey(id);
+		testInfos.setContent("11");
 		return testInfos;
 	}
 
