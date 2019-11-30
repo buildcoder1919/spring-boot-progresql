@@ -24,10 +24,10 @@ public class RunAfterFunction implements CommandLineRunner {
     private RedisTemplate<String,String> cache;
     @Override
     public void run(String... args) throws Exception {
-        for (int i = 0; i < 10; i++) {
+       /* for (int i = 0; i < 10; i++) {
             log.info("线程{}调起",i);
             cache.opsForList().rightPush("testlist",i+"");
             getExecutor.execute(thread);
-        }
+        }*/
     }
 }

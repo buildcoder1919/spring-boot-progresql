@@ -26,8 +26,8 @@ public class UserEntityControler {
 		List<UserEntity> users=userMapper.getAll();
 		return users;
 	}
-	@RequestMapping("/getTestInfo")
-	public TestInfo getTestInfo(@RequestParam Short id) {
+	@RequestMapping("/getTestInfo/{id}")
+	public TestInfo getTestInfo(@PathVariable Short id) {
         TestInfo testInfos=testInfoMapper.selectByPrimaryKey(id);
 		testInfos.setContent("11");
 		return testInfos;

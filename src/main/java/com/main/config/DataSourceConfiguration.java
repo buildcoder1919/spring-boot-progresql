@@ -11,23 +11,23 @@ import java.beans.PropertyVetoException;
 @SpringBootConfiguration
 public class DataSourceConfiguration {
 
-    @Value("${spring.datasource.driver-class-name}")
-    private String jdbcDriver;
+    @Value("${spring.datasource.driver}")
+    private String driver;
     @Value("${spring.datasource.url}")
-    private String jdbcUrl;
+    private String url;
     @Value("${spring.datasource.username}")
-    private String jdbcUser;
+    private String username;
     @Value("${spring.datasource.password}")
-    private String jdbcPassword;
+    private String password;
 
     @Bean
     public DataSource createDataSource() throws PropertyVetoException {
         ComboPooledDataSource dataSource = new ComboPooledDataSource();
 
-        dataSource.setDriverClass(jdbcDriver);
-        dataSource.setJdbcUrl(jdbcUrl);
-        dataSource.setUser(jdbcUser);
-        dataSource.setPassword(jdbcPassword);
+        dataSource.setDriverClass(driver);
+        dataSource.setJdbcUrl(url);
+        dataSource.setUser(username);
+        dataSource.setPassword(password);
         // 关闭连接后不自动提交
         dataSource.setAutoCommitOnClose(false);
 

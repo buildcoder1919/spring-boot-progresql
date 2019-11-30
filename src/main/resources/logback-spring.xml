@@ -8,7 +8,7 @@
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <!-- <filter class="com.example.logback.filter.MyFilter" /> -->
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-              <level>INFO</level>
+              <level>DEBUG</level>
         </filter>
         <encoder>
             <pattern>[%contextName][%d{HH:mm:ss.SSS}][%-5level][%thread][%logger{36}] - %msg%n</pattern>
@@ -30,11 +30,12 @@
 		</encoder>
 	</appender>
 	
-    <root level="INFO">
+    <root level="DEBUG">
         <appender-ref ref="console" />
         <appender-ref ref="file" />
     </root>
 
 <!--     <logger name="com.pfpj.user" level="DEBUG" /> -->
-
+    <logger name="org.apache.mybatis" level="DEBUG" />
+    <logger name="java.sql" level="DEBUG" />
 </configuration>
