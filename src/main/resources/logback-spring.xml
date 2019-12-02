@@ -8,7 +8,7 @@
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <!-- <filter class="com.example.logback.filter.MyFilter" /> -->
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-              <level>DEBUG</level>
+              <level>INFO</level>
         </filter>
         <encoder>
             <pattern>[%contextName][%d{HH:mm:ss.SSS}][%-5level][%thread][%logger{36}] - %msg%n</pattern>
@@ -30,7 +30,7 @@
 		</encoder>
 	</appender>
 	
-    <root level="DEBUG">
+    <root level="INFO">
         <appender-ref ref="console" />
         <appender-ref ref="file" />
     </root>

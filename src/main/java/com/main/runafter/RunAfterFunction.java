@@ -11,6 +11,8 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
 @Order(value=1)
 public class RunAfterFunction implements CommandLineRunner {
@@ -24,10 +26,9 @@ public class RunAfterFunction implements CommandLineRunner {
     private RedisTemplate<String,String> cache;
     @Override
     public void run(String... args) throws Exception {
-       /* for (int i = 0; i < 10; i++) {
-            log.info("线程{}调起",i);
-            cache.opsForList().rightPush("testlist",i+"");
-            getExecutor.execute(thread);
-        }*/
+
+        List<String> strList = cache.opsForList().range("testlist",0,-1);
+        System.out.println(strList.toString());
+        cache.opsForList().trim("testlist",strList.size(),-1);
     }
 }
